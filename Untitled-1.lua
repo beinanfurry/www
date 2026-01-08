@@ -734,7 +734,7 @@ local DoorsSection = DoorsTab:Section({
 })
 
 -- Create 10 Open Door buttons
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     DoorsSection:Button({
         Title = "Open Door " .. idx,
@@ -762,7 +762,7 @@ local GeneralSection = GeneralTab:Section({
 })
 
 -- Create 10 Open Door buttons
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     GeneralSection:Button({
         Title = "Open Door " .. idx,
@@ -779,7 +779,7 @@ GeneralTab:Select()
 
 -- Additional Doors Control inside General
 local GeneralDoorsControl = GeneralTab:Section({ Title = "Doors Control (追加)", })
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     GeneralDoorsControl:Button({
         Title = "Open Door " .. idx,
@@ -803,7 +803,7 @@ local Doors2Tab = Window:Tab({
 local Doors2Section = Doors2Tab:Section({ Title = "Doors Control", })
 
 -- Create 10 Open Door buttons
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     Doors2Section:Button({
         Title = "Open Door " .. idx,
@@ -824,7 +824,7 @@ local Doors3Tab = Window:Tab({
 local Doors3Section = Doors3Tab:Section({ Title = "Doors Control", })
 
 -- Create 10 Open Door buttons
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     Doors3Section:Button({
         Title = "Open Door " .. idx,
@@ -845,7 +845,7 @@ local Doors4Tab = Window:Tab({
 local Doors4Section = Doors4Tab:Section({ Title = "Doors Control", })
 
 -- Create 10 Open Door buttons
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     Doors4Section:Button({
         Title = "Open Door " .. idx,
@@ -866,7 +866,7 @@ local Doors5Tab = Window:Tab({
 local Doors5Section = Doors5Tab:Section({ Title = "Doors Control", })
 
 -- Create 10 Open Door buttons
-for i = 1, 10 do
+for i = 1, 1 do
     local idx = i
     Doors5Section:Button({
         Title = "Open Door " .. idx,
@@ -892,7 +892,7 @@ for t = 1, 10 do
     for s = 1, 10 do
         local sIdx = s
         local Sec = BulkTab:Section({ Title = "Doors Control " .. sIdx })
-        for b = 1, 10 do
+        for b = 1, 1 do
             local bIdx = b
             Sec:Button({
                 Title = "Open Door " .. sIdx .. "-" .. bIdx,
