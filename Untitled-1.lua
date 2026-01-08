@@ -844,19 +844,63 @@ local GeneralSection = GeneralTab:Section({
     Title = "通用飞行合集",
 })
 
--- Create 10 Open Door buttons
-for i = 1, 8 do
-    local idx = i
+-- Create 8 flight buttons
+for i = 1, 1 do
     GeneralSection:Button({
-        Title = "Open Door " .. idx,
+        Title = "飞行 " .. i,
         Callback = function()
-            print("Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            local url = "https://pastefy.app/xV1T3PE" .. string.char(104 + i) .. "/raw"
+            print("飞行 " .. i .. " pressed")
+            WindUI:Notify({ Title = "飞行合集", Content = "正在加载飞行 " .. i .. " 脚本..." })
+            local url = "https://pastefy.app/xV1T3PG" .. string.char(104 + i) .. "/raw"
             loadstring(game:HttpGet(url))()
         end
     })
 end
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 1",
+    Callback = function()
+        print("黑洞 1 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 1 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 2",
+    Callback = function()
+        print("黑洞 2 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 2 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 3",
+    Callback = function()
+        print("黑洞 3 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 3 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 4",
+    Callback = function()
+        print("黑洞 4 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 4 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 5",
+    Callback = function()
+        print("黑洞 5 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本..." })
+        loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
+    end
+})
 
 -- Select the General (通用) tab programmatically
 GeneralTab:Select()
