@@ -791,6 +791,20 @@ for i = 1, 1 do
     })
 end
 
+-- Another Doors Control inside General
+local GeneralDoorsControl2 = GeneralTab:Section({ Title = "Doors Control", })
+for i = 1, 1 do
+    local idx = i
+    GeneralDoorsControl2:Button({
+        Title = "Open Door " .. idx,
+        Callback = function()
+            print("General Doors Control 2 Open Door " .. idx .. " pressed")
+            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+        end
+    })
+end
+
 -- MimicTab and GenshinTab removed as requested
 
 -- Additional Doors-like Tabs
