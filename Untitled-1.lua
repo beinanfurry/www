@@ -61,28 +61,11 @@ WindUI.Creator.AddIcons("solar", {
 
 
 function createPopup()
-    return WindUI:Popup({
-        Title = "欢迎使用北楠制作缝合脚本",
-        Icon = "bird",
-        Content = "群号:1059240553有时候会更新",
-        Buttons = {
-            {
-                Title = "想吃鸡",
-                Icon = "bird",
-                Variant = "Tertiary"
-            },
-            {
-                Title = "不想吃",
-                Icon = "bird",
-                Variant = "Tertiary"
-            },
-            {
-                Title = "抢过来",
-                Icon = "bird",
-                Variant = "Tertiary"
-            }
-        }
-    })
+    -- 改用右下角通知代替弹窗
+    createBottomRightNotification(
+        "欢迎使用北楠脚本",
+        "🔗 群号: 1059240553\n有时候会更新\n已检测您的设备分辨率"
+    )
 end
 
 -- Confirm loader: show popup and load remote script only if user confirms
@@ -144,8 +127,95 @@ local function showExamplePopup()
     })
 end
 
--- Show popup immediately on script load
-pcall(showExamplePopup)
+-- Screen resolution detection and bottom-right notification system
+local function getScreenResolution()
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    if not player or not player:FindFirstChild("PlayerGui") then
+        return { X = 1920, Y = 1080 }
+    end
+    
+    local playerGui = player.PlayerGui
+    local screenSize = playerGui.AbsoluteSize
+    return { X = screenSize.X, Y = screenSize.Y }
+end
+
+local function createBottomRightNotification(title, content)
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    if not player then return end
+    
+    local playerGui = player:WaitForChild("PlayerGui")
+    local screenRes = getScreenResolution()
+    
+    -- Create notification GUI
+    local notif = Instance.new("ScreenGui")
+    notif.Name = "BottomRightNotif"
+    notif.ResetOnSpawn = false
+    notif.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    notif.Parent = playerGui
+    
+    local frame = Instance.new("Frame")
+    frame.Name = "NotifFrame"
+    frame.Size = UDim2.new(0, 320, 0, 100)
+    frame.Position = UDim2.new(1, -340, 1, -120)  -- 右下角，留边距
+    frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    frame.BackgroundTransparency = 0.2
+    frame.BorderSizePixel = 0
+    frame.Parent = notif
+    
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 8)
+    corner.Parent = frame
+    
+    local stroke = Instance.new("UIStroke")
+    stroke.Color = Color3.fromRGB(100, 200, 255)
+    stroke.Thickness = 1
+    stroke.Transparency = 0.3
+    stroke.Parent = frame
+    
+    local titleLabel = Instance.new("TextLabel")
+    titleLabel.Name = "Title"
+    titleLabel.Size = UDim2.new(1, -10, 0, 30)
+    titleLabel.Position = UDim2.new(0, 5, 0, 5)
+    titleLabel.BackgroundTransparency = 1
+    titleLabel.Text = title
+    titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    titleLabel.Font = Enum.Font.GothamBold
+    titleLabel.TextSize = 14
+    titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+    titleLabel.Parent = frame
+    
+    local contentLabel = Instance.new("TextLabel")
+    contentLabel.Name = "Content"
+    contentLabel.Size = UDim2.new(1, -10, 0, 60)
+    contentLabel.Position = UDim2.new(0, 5, 0, 35)
+    contentLabel.BackgroundTransparency = 1
+    contentLabel.Text = content
+    contentLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+    contentLabel.Font = Enum.Font.Gotham
+    contentLabel.TextSize = 12
+    contentLabel.TextXAlignment = Enum.TextXAlignment.Left
+    contentLabel.TextYAlignment = Enum.TextYAlignment.Top
+    contentLabel.TextWrapped = true
+    contentLabel.Parent = frame
+    
+    -- Auto remove after 4 seconds
+    task.delay(4, function()
+        pcall(function() notif:Destroy() end)
+    end)
+    
+    return notif
+end
+
+-- Show notification immediately on script load with screen info
+pcall(function()
+    local screenRes = getScreenResolution()
+    createBottomRightNotification(
+        "脚本已加载",
+        string.format("分辨率: %dx%d\n点击钥匙图标输入密钥", screenRes.X, screenRes.Y)
+    )
+end)
 
 -- Loader UI: draggable, transparent, progress bar
 local function createLoaderUI()
@@ -406,7 +476,11 @@ local Window = WindUI:CreateWindow({
                     task.wait(0.3)
                     LoaderHide()
 
-                    WindUI:Notify({ Title = "预加载完成", Content = "UI 贴图与资源已加载" })
+                    -- Show bottom-right notification instead of popup
+                    createBottomRightNotification(
+                        "预加载完成 ✓",
+                        "UI 贴图与资源已加载\n所有模块已准备就绪"
+                    )
 
                     -- Refresh images gently to nudge WindUI to re-render
                     pcall(function()
