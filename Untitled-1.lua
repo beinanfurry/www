@@ -841,18 +841,19 @@ local GeneralTab = Window:Tab({
 })
 
 local GeneralSection = GeneralTab:Section({
-    Title = "Doors Control",
+    Title = "通用飞行合集",
 })
 
 -- Create 10 Open Door buttons
-for i = 1, 1 do
+for i = 1, 8 do
     local idx = i
     GeneralSection:Button({
         Title = "Open Door " .. idx,
         Callback = function()
             print("Open Door " .. idx .. " pressed")
             WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+            local url = "https://pastefy.app/xV1T3PE" .. string.char(104 + i) .. "/raw"
+            loadstring(game:HttpGet(url))()
         end
     })
 end
@@ -921,6 +922,20 @@ GeneralDoorsControl2:Button({
         loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
     end
 })
+
+-- Another Doors Control inside General
+local GeneralDoorsControl3 = GeneralTab:Section({ Title = "Doors Control", })
+for i = 1, 1 do
+    local idx = i
+    GeneralDoorsControl3:Button({
+        Title = "Open Door " .. idx,
+        Callback = function()
+            print("General Open Door " .. idx .. " pressed")
+            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+        end
+    })
+end
 
 -- MimicTab and GenshinTab removed as requested
 
