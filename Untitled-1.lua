@@ -792,18 +792,52 @@ for i = 1, 1 do
 end
 
 -- Another Doors Control inside General
-local GeneralDoorsControl2 = GeneralTab:Section({ Title = "Doors Control", })
-for i = 1, 1 do
-    local idx = i
-    GeneralDoorsControl2:Button({
-        Title = "Open Door " .. idx,
-        Callback = function()
-            print("General Doors Control 2 Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-        end
-    })
-end
+local GeneralDoorsControl2 = GeneralTab:Section({ Title = "自然灾害黑洞", })
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 1",
+    Callback = function()
+        print("黑洞 1 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 1 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 2",
+    Callback = function()
+        print("黑洞 2 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 2 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 3",
+    Callback = function()
+        print("黑洞 3 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 3 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 4",
+    Callback = function()
+        print("黑洞 4 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 4 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 5",
+    Callback = function()
+        print("黑洞 5 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本..." })
+        loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
+    end
+})
 
 -- MimicTab and GenshinTab removed as requested
 
