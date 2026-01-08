@@ -34,78 +34,45 @@ WindUI.Services.keyguardian = {
             end
         end
 
-        local function copyLink()
-            setclipboard("https://keyguardian.example.com/get?service=" .. ServiceId)
-        end
+        GeneralDoorsControl2:Button({
+            Title = "黑洞 5",
+            Callback = function()
+                print("黑洞 5 pressed")
+                -- 仅当开关已开启时才执行脚本（保持静默）
+                if not (_G and _G.BlackHole5Enabled) then
+                    return
+                end
+                pcall(function()
+                    loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
+                end)
+            end
+        })
+        pcall(function()
+            if Toggle and type(Toggle.Set) == "function" then
+                Toggle:Set(false)
+            end
+        end)
 
-        return {
-            Verify = validateKey,
-            Copy = copyLink
-        }
-    end
-}
-
---[[
-
-WindUI.Creator.AddIcons("solar", {
-    ["CheckSquareBold"] = "rbxassetid://132438947521974",
-    ["CursorSquareBold"] = "rbxassetid://120306472146156",
-    ["FileTextBold"] = "rbxassetid://89294979831077",
-    ["FolderWithFilesBold"] = "rbxassetid://74631950400584",
-    ["HamburgerMenuBold"] = "rbxassetid://134384554225463",
-    ["Home2Bold"] = "rbxassetid://92190299966310",
-    ["InfoSquareBold"] = "rbxassetid://119096461016615",
-    ["PasswordMinimalisticInputBold"] = "rbxassetid://109919668957167",
-    ["SolarSquareTransferHorizontalBold"] = "rbxassetid://125444491429160",
-})--]]
-
-
-function createPopup()
-    return WindUI:Popup({
-        Title = "欢迎使用北楠制作缝合脚本",
-        Icon = "bird",
-        Content = "群号:1059240553有时候会更新",
-        Buttons = {
-            {
-                Title = "想吃鸡",
-                Icon = "bird",
-                Variant = "Tertiary"
-            },
-            {
-                Title = "不想吃",
-                Icon = "bird",
-                Variant = "Tertiary"
-            },
-            {
-                Title = "抢过来",
-                Icon = "bird",
-                Variant = "Tertiary"
-            }
-        }
-    })
-end
-
--- Confirm loader: show popup and load remote script only if user confirms
-local function confirmLoad(url)
-    WindUI:Popup({
-        Title = "确认加载脚本",
-        Icon = "info",
-        Content = "是否加载该脚本？\n" .. tostring(url),
-        Buttons = {
-            {
-                Title = "取消",
-                Callback = function() end,
-                Variant = "Tertiary",
-            },
-            {
-                Title = "继续",
-                Icon = "arrow-right",
-                Callback = function()
-                    local ok, body = pcall(function() return game:HttpGet(url) end)
-                    if not ok or not body then
-                        WindUI:Notify({ Title = "加载失败", Content = "无法获取脚本" })
-                        return
-                    end
+        -- 使用用户提供的 Toggle 样式来控制黑洞5（切换时不弹窗）
+        local Toggle = GeneralDoorsControl2:Toggle({
+            Title = "Toggle",
+            Desc = "Toggle Description",
+            Icon = "bird",
+            Type = "Checkbox",
+            Value = false,
+            Callback = function(state)
+                print("Toggle Activated" .. tostring(state))
+                pcall(function() _G.BlackHole5Enabled = state end)
+            end
+        })
+        pcall(function()
+            if Toggle and type(Toggle.SetDesc) == "function" then
+                Toggle:SetDesc("Description Example")
+            end
+            if Toggle and type(Toggle.Set) == "function" then
+                Toggle:Set(false)
+            end
+        end)
                     local fn, err = (loadstring or load)(body)
                     if not fn then
                         WindUI:Notify({ Title = "加载失败", Content = "解析失败: " .. tostring(err) })
