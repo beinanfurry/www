@@ -831,7 +831,6 @@ end
 DoorsTab:Select()
 
 Window:Divider()
-Window:Space()
 
 -- Additional Tabs
 local GeneralTab = Window:Tab({
