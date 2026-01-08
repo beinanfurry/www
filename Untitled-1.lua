@@ -889,7 +889,7 @@ for t = 1, 10 do
         Border = true,
     })
 
-    for s = 1, 10 do
+    for s = 1, 1 do
         local sIdx = s
         local Sec = BulkTab:Section({ Title = "Doors Control " .. sIdx })
         for b = 1, 1 do
