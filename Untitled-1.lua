@@ -830,6 +830,9 @@ end
 -- Select the Doors tab programmatically
 DoorsTab:Select()
 
+Window:Divider()
+Window:Space()
+
 -- Additional Tabs
 local GeneralTab = Window:Tab({
     Title = "通用",
