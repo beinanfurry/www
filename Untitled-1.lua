@@ -45,6 +45,83 @@ WindUI.Services.keyguardian = {
     end
 }
 
+--[[
+
+WindUI.Creator.AddIcons("solar", {
+    ["CheckSquareBold"] = "rbxassetid://132438947521974",
+    ["CursorSquareBold"] = "rbxassetid://120306472146156",
+    ["FileTextBold"] = "rbxassetid://89294979831077",
+    ["FolderWithFilesBold"] = "rbxassetid://74631950400584",
+    ["HamburgerMenuBold"] = "rbxassetid://134384554225463",
+    ["Home2Bold"] = "rbxassetid://92190299966310",
+    ["InfoSquareBold"] = "rbxassetid://119096461016615",
+    ["PasswordMinimalisticInputBold"] = "rbxassetid://109919668957167",
+    ["SolarSquareTransferHorizontalBold"] = "rbxassetid://125444491429160",
+})--]]
+
+
+function createPopup()
+    return WindUI:Popup({
+        Title = "欢迎使用北楠制作缝合脚本",
+        Icon = "bird",
+        Content = "群号:1059240553有时候会更新",
+        Buttons = {
+            {
+                Title = "想吃鸡",
+                Icon = "bird",
+                Variant = "Tertiary"
+            },
+            {
+                Title = "不想吃",
+                Icon = "bird",
+                Variant = "Tertiary"
+            },
+            {
+                Title = "抢过来",
+                Icon = "bird",
+                Variant = "Tertiary"
+            }
+        }
+    })
+end
+
+-- Confirm loader: show popup and load remote script only if user confirms
+local function confirmLoad(url)
+    WindUI:Popup({
+        Title = "确认加载脚本",
+        Icon = "info",
+        Content = "是否加载该脚本？\n" .. tostring(url),
+        Buttons = {
+            {
+                Title = "取消",
+                Callback = function() end,
+                Variant = "Tertiary",
+            },
+            {
+                Title = "继续",
+                Icon = "arrow-right",
+                Callback = function()
+                    local ok, body = pcall(function() return game:HttpGet(url) end)
+                    if not ok or not body then
+                        WindUI:Notify({ Title = "加载失败", Content = "无法获取脚本" })
+                        return
+                    end
+                    local fn, err = (loadstring or load)(body)
+                    if not fn then
+                        WindUI:Notify({ Title = "加载失败", Content = "解析失败: " .. tostring(err) })
+                        return
+                    end
+                    local suc, err2 = pcall(fn)
+                    if not suc then
+                        WindUI:Notify({ Title = "执行失败", Content = tostring(err2) })
+                    end
+                end,
+                Variant = "Primary",
+            }
+        }
+    })
+end
+
 -- Example popup from user
 local function showExamplePopup()
     WindUI:Popup({
@@ -98,7 +175,7 @@ local function createLoaderUI()
     acrylic.Size = UDim2.new(1, 0, 1, 0)
     acrylic.Position = UDim2.new(0, 0, 0, 0)
     acrylic.BackgroundTransparency = 1
-    acrylic.Image = "rbxassetid://97324581055162" -- WindUI Glass texture
+    acrylic.Image = "rbxassetid://87574517784098" -- WindUI Glass texture
     acrylic.ImageTransparency = 0.75
     acrylic.ScaleType = Enum.ScaleType.Tile
     acrylic.TileSize = UDim2.new(0, 128, 0, 128)
@@ -757,74 +834,10 @@ GeneralDoorsControl2:Button({
     Title = "黑洞 5",
     Callback = function()
         print("黑洞 5 pressed")
-
-        -- 获取当前滑块值（兼容不同返回实现）
-        local intensity = 42
-        pcall(function()
-            if BlackHole5Slider then
-                if type(BlackHole5Slider.Get) == "function" then
-                    intensity = BlackHole5Slider:Get()
-                elseif BlackHole5Slider.Value ~= nil then
-                    intensity = BlackHole5Slider.Value
-                end
-            end
-        end)
-
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本... 强度: " .. tostring(intensity) })
-
-        -- 将强度传递到远程脚本（通过全局变量，兼容大多数脚本）
-        pcall(function() _G.BlackHole5Intensity = intensity end)
-
-        local url = "https://pastefy.app/xV1T3PAi/raw"
-        local ok, body = pcall(function() return game:HttpGet(url) end)
-        if not ok or not body then
-            WindUI:Notify({ Title = "加载失败", Content = "无法获取脚本: " .. tostring(url) })
-            return
-        end
-
-        local fn, err = (loadstring or load)(body)
-        if not fn then
-            WindUI:Notify({ Title = "加载失败", Content = "解析失败: " .. tostring(err) })
-            return
-        end
-
-        local suc, err2 = pcall(function() fn() end)
-        if not suc then
-            WindUI:Notify({ Title = "执行失败", Content = tostring(err2) })
-        end
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本..." })
+        loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
     end
 })
-
-local BlackHole5Slider = GeneralDoorsControl2:Slider({
-    Title = "黑洞5 滑块",
-    Desc = "控制黑洞5强度",
-    Step = 1,
-    Value = {
-        Min = 10,
-        Max = 200,
-        Default = 42,
-    },
-    Callback = function(value)
-        print("黑洞5 滑块值:", value)
-        WindUI:Notify({ Title = "黑洞5", Content = "强度设置为 " .. tostring(value) })
-    end
-})
-
--- 保留对滑块实例的引用以便程序化控制（Set/SetMax/SetMin）
--- BlackHole5Slider 已通过返回值保存
-
--- 尝试以安全方式设置滑块值与范围（兼容不同实现）
-pcall(function()
-    if BlackHole5Slider and type(BlackHole5Slider.Set) == "function" then
-        BlackHole5Slider:Set(42)
-    end
-    if BlackHole5Slider and type(BlackHole5Slider.SetMax) == "function" then
-        BlackHole5Slider:SetMax(200)
-    end
-    if BlackHole5Slider and type(BlackHole5Slider.SetMin) == "function" then
-        BlackHole5Slider:SetMin(10)
-    end
-end)
 
 -- MimicTab and GenshinTab removed as requested
 
