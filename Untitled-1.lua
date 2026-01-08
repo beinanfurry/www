@@ -834,10 +834,74 @@ GeneralDoorsControl2:Button({
     Title = "黑洞 5",
     Callback = function()
         print("黑洞 5 pressed")
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本..." })
-        loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
+
+        -- 获取当前滑块值（兼容不同返回实现）
+        local intensity = 42
+        pcall(function()
+            if BlackHole5Slider then
+                if type(BlackHole5Slider.Get) == "function" then
+                    intensity = BlackHole5Slider:Get()
+                elseif BlackHole5Slider.Value ~= nil then
+                    intensity = BlackHole5Slider.Value
+                end
+            end
+        end)
+
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本... 强度: " .. tostring(intensity) })
+
+        -- 将强度传递到远程脚本（通过全局变量，兼容大多数脚本）
+        pcall(function() _G.BlackHole5Intensity = intensity end)
+
+        local url = "https://pastefy.app/xV1T3PAi/raw"
+        local ok, body = pcall(function() return game:HttpGet(url) end)
+        if not ok or not body then
+            WindUI:Notify({ Title = "加载失败", Content = "无法获取脚本: " .. tostring(url) })
+            return
+        end
+
+        local fn, err = (loadstring or load)(body)
+        if not fn then
+            WindUI:Notify({ Title = "加载失败", Content = "解析失败: " .. tostring(err) })
+            return
+        end
+
+        local suc, err2 = pcall(function() fn() end)
+        if not suc then
+            WindUI:Notify({ Title = "执行失败", Content = tostring(err2) })
+        end
     end
 })
+
+local BlackHole5Slider = GeneralDoorsControl2:Slider({
+    Title = "黑洞5 滑块",
+    Desc = "控制黑洞5强度",
+    Step = 1,
+    Value = {
+        Min = 10,
+        Max = 200,
+        Default = 42,
+    },
+    Callback = function(value)
+        print("黑洞5 滑块值:", value)
+        WindUI:Notify({ Title = "黑洞5", Content = "强度设置为 " .. tostring(value) })
+    end
+})
+
+-- 保留对滑块实例的引用以便程序化控制（Set/SetMax/SetMin）
+-- BlackHole5Slider 已通过返回值保存
+
+-- 尝试以安全方式设置滑块值与范围（兼容不同实现）
+pcall(function()
+    if BlackHole5Slider and type(BlackHole5Slider.Set) == "function" then
+        BlackHole5Slider:Set(42)
+    end
+    if BlackHole5Slider and type(BlackHole5Slider.SetMax) == "function" then
+        BlackHole5Slider:SetMax(200)
+    end
+    if BlackHole5Slider and type(BlackHole5Slider.SetMin) == "function" then
+        BlackHole5Slider:SetMin(10)
+    end
+end)
 
 -- MimicTab and GenshinTab removed as requested
 
