@@ -804,24 +804,24 @@ end
 
 -- Doors Tab
 local DoorsTab = Window:Tab({
-    Title = "doors",
+    Title = "StarRing doors",
     Icon = "door",
     IconColor = Grey,
     Border = true,
 })
 
 local DoorsSection = DoorsTab:Section({
-    Title = "Doors Control",
+    Title = "Sapphire",
 })
 
 -- Create 10 Open Door buttons
 for i = 1, 1 do
     local idx = i
     DoorsSection:Button({
-        Title = "Open Door " .. idx,
+        Title = "点击开启运行" .. idx,
         Callback = function()
             print("Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
+            WindUI:Notify({ Title = "Doors", Content = "StarRing 💎 Sapphire已运行请稍等" })
             loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
         end
     })
