@@ -479,6 +479,13 @@ elseif Window and Window.Background ~= nil then
     Window.Background = "rbxassetid://87574517784098"
 end
 
+-- Toggle background transparency
+pcall(function()
+    if Window and type(Window.ToggleTransparency) == "function" then
+        Window:ToggleTransparency(true)
+    end
+end)
+
 -- */  Theme (soon)  /* --
 do
     --[[WindUI:AddTheme({
