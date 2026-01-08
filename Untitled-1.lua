@@ -888,6 +888,11 @@ local ConfigUsageSection = Window:Section({
 local OtherSection = Window:Section({
     Title = "Other",
 })
+local Section = Window:Section({
+    Title = "Section for the tabs",
+    Icon = "bird",
+    Opened = true,
+})
 
 
 
