@@ -34,60 +34,16 @@ WindUI.Services.keyguardian = {
             end
         end
 
-        GeneralDoorsControl2:Button({
-            Title = "黑洞 5",
-            Callback = function()
-                print("黑洞 5 pressed")
-                -- 仅当开关已开启时才执行脚本（保持静默）
-                if not (_G and _G.BlackHole5Enabled) then
-                    return
-                end
-                pcall(function()
-                    loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
-                end)
-            end
-        })
-        pcall(function()
-            if Toggle and type(Toggle.Set) == "function" then
-                Toggle:Set(false)
-            end
-        end)
+        local function copyLink()
+            setclipboard("https://keyguardian.example.com/get?service=" .. ServiceId)
+        end
 
-        -- 使用用户提供的 Toggle 样式来控制黑洞5（切换时不弹窗）
-        local Toggle = GeneralDoorsControl2:Toggle({
-            Title = "Toggle",
-            Desc = "Toggle Description",
-            Icon = "bird",
-            Type = "Checkbox",
-            Value = false,
-            Callback = function(state)
-                print("Toggle Activated" .. tostring(state))
-                pcall(function() _G.BlackHole5Enabled = state end)
-            end
-        })
-        pcall(function()
-            if Toggle and type(Toggle.SetDesc) == "function" then
-                Toggle:SetDesc("Description Example")
-            end
-            if Toggle and type(Toggle.Set) == "function" then
-                Toggle:Set(false)
-            end
-        end)
-                    local fn, err = (loadstring or load)(body)
-                    if not fn then
-                        WindUI:Notify({ Title = "加载失败", Content = "解析失败: " .. tostring(err) })
-                        return
-                    end
-                    local suc, err2 = pcall(fn)
-                    if not suc then
-                        WindUI:Notify({ Title = "执行失败", Content = tostring(err2) })
-                    end
-                end,
-                Variant = "Primary",
-            }
+        return {
+            Verify = validateKey,
+            Copy = copyLink
         }
-    })
-end
+    end
+}
 
 -- Example popup from user
 local function showExamplePopup()
