@@ -844,63 +844,37 @@ local GeneralSection = GeneralTab:Section({
     Title = "通用飞行合集",
 })
 
--- Create 8 flight buttons
-for i = 1, 1 do
+-- Script URLs array for 8 buttons
+local scriptUrls = {
+    "https://pastefy.app/xV1T3PGi/raw",
+    "https://pastefy.app/xV1T3PGj/raw",
+    "https://pastefy.app/xV1T3PGk/raw",
+    "https://pastefy.app/xV1T3PGl/raw",
+    "https://pastefy.app/xV1T3PGm/raw",
+    "https://pastefy.app/xV1T3PGn/raw",
+    "https://pastefy.app/xV1T3PGo/raw",
+    "https://pastefy.app/xV1T3PGp/raw"
+}
+
+-- Create 8 Open Door buttons
+for i = 1, 8 do
+    local idx = i  -- Closure trap fix
     GeneralSection:Button({
-        Title = "飞行 " .. i,
+        Title = "Open Door " .. idx,
         Callback = function()
-            print("飞行 " .. i .. " pressed")
-            WindUI:Notify({ Title = "飞行合集", Content = "正在加载飞行 " .. i .. " 脚本..." })
-            local url = "https://pastefy.app/xV1T3PG" .. string.char(104 + i) .. "/raw"
-            loadstring(game:HttpGet(url))()
+            print("Open Door " .. idx .. " pressed")
+            WindUI:Notify({ Title = "通用飞行合集", Content = "正在加载 Open Door " .. idx .. " 脚本..." })
+            local url = scriptUrls[idx]
+            local success, err = pcall(function()
+                loadstring(game:HttpGet(url))()
+            end)
+            if not success then
+                WindUI:Notify({ Title = "错误", Content = "加载脚本失败: " .. tostring(err) })
+                warn("Script load error for Open Door " .. idx .. ": " .. tostring(err))
+            end
         end
     })
 end
-
-GeneralDoorsControl2:Button({
-    Title = "黑洞 1",
-    Callback = function()
-        print("黑洞 1 pressed")
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 1 脚本..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-    end
-})
-
-GeneralDoorsControl2:Button({
-    Title = "黑洞 2",
-    Callback = function()
-        print("黑洞 2 pressed")
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 2 脚本..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-    end
-})
-
-GeneralDoorsControl2:Button({
-    Title = "黑洞 3",
-    Callback = function()
-        print("黑洞 3 pressed")
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 3 脚本..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-    end
-})
-
-GeneralDoorsControl2:Button({
-    Title = "黑洞 4",
-    Callback = function()
-        print("黑洞 4 pressed")
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 4 脚本..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-    end
-})
-
-GeneralDoorsControl2:Button({
-    Title = "黑洞 5",
-    Callback = function()
-        print("黑洞 5 pressed")
-        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 5 脚本..." })
-        loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
-    end
-})
 
 -- Select the General (通用) tab programmatically
 GeneralTab:Select()
