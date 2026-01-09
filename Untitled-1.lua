@@ -571,15 +571,6 @@ elseif Window and Window.Background ~= nil then
     Window.Background = "rbxassetid://89828019713131"
 end
 
--- Add blur effect for acrylic look
-pcall(function()
-    local lighting = game:GetService("Lighting")
-    local blur = Instance.new("BlurEffect")
-    blur.Name = "WindUIBlur"
-    blur.Size = 24
-    blur.Parent = lighting
-end)
-
 -- Toggle background transparency
 pcall(function()
     if Window and type(Window.ToggleTransparency) == "function" then
@@ -882,6 +873,24 @@ GeneralSpeedSection:Slider({
         local character = game.Players.LocalPlayer.Character
         if character and character:FindFirstChild("Humanoid") then
             character.Humanoid.WalkSpeed = value
+        end
+    end
+})
+
+GeneralSpeedSection:Toggle({
+    Title = "踏空行走",
+    Desc = "在空中也能行走",
+    Icon = "foot",
+    Type = "Switch",
+    Value = false,
+    Callback = function(state)
+        local character = game.Players.LocalPlayer.Character
+        if character and character:FindFirstChild("Humanoid") then
+            if state then
+                character.Humanoid.PlatformStand = false
+            else
+                character.Humanoid.PlatformStand = false
+            end
         end
     end
 })
