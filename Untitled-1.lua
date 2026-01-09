@@ -856,6 +856,40 @@ local GeneralTab = Window:Tab({
     Border = true,
 })
 
+GeneralTab:Slider({
+    Title = "移动速度",
+    Desc = "调整角色移动速度 (16-100)",
+    Step = 1,
+    Value = {
+        Min = 16,
+        Max = 100,
+        Default = 16,
+    },
+    Callback = function(value)
+        local character = game.Players.LocalPlayer.Character
+        if character and character:FindFirstChild("Humanoid") then
+            character.Humanoid.WalkSpeed = value
+        end
+    end
+})
+
+GeneralTab:Slider({
+    Title = "跳跃高度",
+    Desc = "调整角色跳跃高度 (50-200)",
+    Step = 5,
+    Value = {
+        Min = 50,
+        Max = 200,
+        Default = 50,
+    },
+    Callback = function(value)
+        local character = game.Players.LocalPlayer.Character
+        if character and character:FindFirstChild("Humanoid") then
+            character.Humanoid.JumpPower = value
+        end
+    end
+})
+
 GeneralTab:Button({
     Title = "飞行 1",
     Callback = function()
