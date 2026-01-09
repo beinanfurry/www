@@ -844,19 +844,77 @@ local GeneralSection = GeneralTab:Section({
     Title = "通用飞行合集",
 })
 
--- Create 10 Open Door buttons
-for i = 1, 1 do
-    local idx = i
-    GeneralSection:Button({
-        Title = "Open Door " .. idx,
-        Callback = function()
-            print("飞行 " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            local url = "https://pastefy.app/xV1T3PE" .. string.char(104 + i) .. "/raw"
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-        end
-    })
-end
+GeneralSection:Button({
+    Title = "飞行 1",
+    Callback = function()
+        print("飞行 1 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 1 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 2",
+    Callback = function()
+        print("飞行 2 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 2 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 3",
+    Callback = function()
+        print("飞行 3 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 3 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 4",
+    Callback = function()
+        print("飞行 4 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 4 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 5",
+    Callback = function()
+        print("飞行 5 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 5 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 6",
+    Callback = function()
+        print("飞行 6 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 6 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 7",
+    Callback = function()
+        print("飞行 7 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 7 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralSection:Button({
+    Title = "飞行 8",
+    Callback = function()
+        print("飞行 8 pressed")
+        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 8 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
 
 -- Select the General (通用) tab programmatically
 GeneralTab:Select()
