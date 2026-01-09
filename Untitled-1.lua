@@ -1168,20 +1168,80 @@ local Doors2Tab = Window:Tab({
     IconColor = Grey,
     Border = true,
 })
-local Doors2Section = Doors2Tab:Section({ Title = "Doors Control", })
 
--- Create 10 Open Door buttons
-for i = 1, 1 do
-    local idx = i
-    Doors2Section:Button({
-        Title = "Open Door " .. idx,
-        Callback = function()
-            print("Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-        end
-    })
-end
+local Doors2Section = Doors2Tab:Section({ Title = "脚本中心", })
+
+Doors2Section:Button({
+    Title = "脚本 1",
+    Callback = function()
+        print("脚本 1 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 2",
+    Callback = function()
+        print("脚本 2 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 3",
+    Callback = function()
+        print("脚本 3 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 4",
+    Callback = function()
+        print("脚本 4 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 5",
+    Callback = function()
+        print("脚本 5 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 6",
+    Callback = function()
+        print("脚本 6 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 7",
+    Callback = function()
+        print("脚本 7 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+Doors2Section:Button({
+    Title = "脚本 8",
+    Callback = function()
+        print("脚本 8 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
 
 Window:Divider()
 
