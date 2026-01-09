@@ -822,28 +822,37 @@ end
 
 -- Doors Tab
 local DoorsTab = Window:Tab({
-    Title = "StarRing doors",
+    Title = "doors",
     Icon = "door",
     IconColor = Grey,
     Border = true,
 })
 
 local DoorsSection = DoorsTab:Section({
-    Title = "Sapphire",
+    Title = "mspaint",
 })
 
 -- Create 10 Open Door buttons
 for i = 1, 1 do
     local idx = i
     DoorsSection:Button({
-        Title = "点击开启运行" .. idx,
+        Title = "点击运行" .. idx,
         Callback = function()
             print("Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "StarRing 💎 Sapphire已运行请稍等" })
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+            WindUI:Notify({ Title = "nspaint", Content = "ms 已运行请稍等" })
+            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/002c19202c9946e6047b0c6e0ad51f84.lua"))()
         end
     })
 end
+
+DoorsSection:Button({
+    Title = "Orange(已翻译)",
+    Callback = function()
+        print("Orange(已翻译) pressed")
+        WindUI:Notify({ Title = "Doors", Content = "Orange已运行请稍等" })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxwanhexxX/Scripts/refs/heads/main/OrangeHub"))()
+    end
+})
 
 -- Select the Doors tab programmatically
 DoorsTab:Select()
