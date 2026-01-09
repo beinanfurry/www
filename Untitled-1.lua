@@ -245,7 +245,7 @@ local function createLoaderUI()
     acrylic.Size = UDim2.new(1, 0, 1, 0)
     acrylic.Position = UDim2.new(0, 0, 0, 0)
     acrylic.BackgroundTransparency = 1
-    acrylic.Image = "rbxassetid://87574517784098" -- WindUI Glass texture
+    acrylic.Image = "rbxassetid://89828019713131" -- WindUI Glass texture
     acrylic.ImageTransparency = 0.75
     acrylic.ScaleType = Enum.ScaleType.Tile
     acrylic.TileSize = UDim2.new(0, 128, 0, 128)
@@ -373,7 +373,7 @@ end
 -- Debug: Preload image to verify accessibility and log results
 task.spawn(function()
     local cp = game:GetService("ContentProvider")
-    local url = "rbxassetid://87574517784098"
+    local url = "rbxassetid://89828019713131"
     local ok, err = pcall(function() cp:PreloadAsync({url}) end)
     print("[WindUI Debug] Preload:", url, ok, err)
     if not ok then
@@ -385,7 +385,7 @@ end)
 task.spawn(function()
     local ok, res = pcall(function()
         if WindUI and WindUI.Icons and WindUI.Icons.Icon then
-            return WindUI.Icons.Icon("rbxassetid://87574517784098")
+            return WindUI.Icons.Icon("rbxassetid://89828019713131")
         end
         return nil
     end)
@@ -412,7 +412,7 @@ local Window = WindUI:CreateWindow({
     Icon = "solar:folder-2-bold-duotone",
     --IconSize = 22*2,
     NewElements = true,
-    Background = "rbxassetid://87574517784098", -- set background decal
+    Background = "rbxassetid://89828019713131", -- set background decal
     --Size = UDim2.fromOffset(700,700),
     
     HideSearchBar = false,
@@ -437,13 +437,13 @@ local Window = WindUI:CreateWindow({
 
     KeySystem = {
         Title = "北楠制作  |  优质脚本缝合",
-        Note = "Key System. Key: 1951835718",
+        Note = "进群不定期更新 1059240553",
         KeyValidator = function(EnteredKey)
             if tostring(EnteredKey) == "114514" then
                 -- Show loader and preload assets
                 task.spawn(function()
                     local assets = {
-                        "rbxassetid://87574517784098",
+                        "rbxassetid://89828019713131",
                     }
 
                     -- Auto-include Window.Background if it's an rbxassetid
@@ -563,9 +563,9 @@ end
 -- Set window background image (safe, pcall)
 -- Directly set background image
 if Window and Window.SetBackgroundImage then
-    Window:SetBackgroundImage("rbxassetid://87574517784098")
+    Window:SetBackgroundImage("rbxassetid://89828019713131")
 elseif Window and Window.Background ~= nil then
-    Window.Background = "rbxassetid://87574517784098"
+    Window.Background = "rbxassetid://89828019713131"
 end
 
 -- Toggle background transparency
@@ -761,7 +761,7 @@ do
     })
     
     AboutSection:Image({
-        Image = "rbxassetid://87574517784098",
+        Image = "rbxassetid://89828019713131",
         AspectRatio = "16:9",
         Radius = 9,
     })
@@ -1175,10 +1175,10 @@ Doors2Tab:Button({
 })
 
 Doors2Tab:Button({
-    Title = "脚本 2",
+    Title = "BS脚本中心",
     Callback = function()
-        print("BS脚本中心 pressed")
-        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
+        print("BS脚本 pressed")
+        WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本耐心等待" })
         loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\103\101\109\120\72\119\65\49"))()
     end
 })
@@ -2141,8 +2141,8 @@ do
         local DiscordServerParagraph = DiscordTab:Paragraph({
             Title = tostring(Response.guild.name),
             Desc = tostring(Response.guild.description),
-            Image = "rbxassetid://87574517784098",
-            Thumbnail = "rbxassetid://87574517784098",
+            Image = "rbxassetid://89828019713131",
+            Thumbnail = "rbxassetid://89828019713131",
             ImageSize = 48,
             Buttons = {
                 {
