@@ -856,7 +856,9 @@ local GeneralTab = Window:Tab({
     Border = true,
 })
 
-GeneralTab:Slider({
+local GeneralSpeedSection = GeneralTab:Section({ Title = "速度调节", })
+
+GeneralSpeedSection:Slider({
     Title = "移动速度",
     Desc = "调整角色移动速度 (16-100)",
     Step = 1,
@@ -873,7 +875,7 @@ GeneralTab:Slider({
     end
 })
 
-GeneralTab:Slider({
+GeneralSpeedSection:Slider({
     Title = "跳跃高度",
     Desc = "调整角色跳跃高度 (50-200)",
     Step = 5,
