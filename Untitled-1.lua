@@ -1367,20 +1367,6 @@ local Tab = Window:Tab({
     Icon = "bird",
     Locked = false,
 })
-
-Tab:Toggle({
-    Title = "旋转动画",
-    Desc = "启用旋转动画脚本",
-    Icon = "rotate",
-    Type = "Switch",
-    Value = false,
-    Callback = function(state)
-        if state then
-            loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
-        end
-    end
-})
-
 local Section = Window:Section({
     Title = "Section for the tabs",
     Icon = "bird",
