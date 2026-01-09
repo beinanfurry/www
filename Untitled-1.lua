@@ -855,11 +855,7 @@ local GeneralTab = Window:Tab({
     Border = true,
 })
 
-local GeneralSection = GeneralTab:Section({
-    Title = "通用飞行合集",
-})
-
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 1",
     Callback = function()
         print("飞行 1 pressed")
@@ -868,7 +864,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 2",
     Callback = function()
         print("飞行 2 pressed")
@@ -877,7 +873,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 3",
     Callback = function()
         print("飞行 3 pressed")
@@ -886,7 +882,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 4",
     Callback = function()
         print("飞行 4 pressed")
@@ -895,7 +891,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 5",
     Callback = function()
         print("飞行 5 pressed")
@@ -904,7 +900,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 6",
     Callback = function()
         print("飞行 6 pressed")
@@ -913,7 +909,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 7",
     Callback = function()
         print("飞行 7 pressed")
@@ -922,7 +918,7 @@ GeneralSection:Button({
     end
 })
 
-GeneralSection:Button({
+GeneralTab:Button({
     Title = "飞行 8",
     Callback = function()
         print("飞行 8 pressed")
