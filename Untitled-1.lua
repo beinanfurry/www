@@ -1169,9 +1169,7 @@ local Doors2Tab = Window:Tab({
     Border = true,
 })
 
-local Doors2Section = Doors2Tab:Section({ Title = "", })
-
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 1",
     Callback = function()
         print("脚本 1 pressed")
@@ -1180,16 +1178,16 @@ Doors2Section:Button({
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 2",
     Callback = function()
-        print("BS脚本中心pressed")
+        print("BS脚本中心 pressed")
         WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
         loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\103\101\109\120\72\119\65\49"))()
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 3",
     Callback = function()
         print("脚本 3 pressed")
@@ -1198,7 +1196,7 @@ Doors2Section:Button({
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 4",
     Callback = function()
         print("脚本 4 pressed")
@@ -1207,7 +1205,7 @@ Doors2Section:Button({
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 5",
     Callback = function()
         print("脚本 5 pressed")
@@ -1216,7 +1214,7 @@ Doors2Section:Button({
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 6",
     Callback = function()
         print("脚本 6 pressed")
@@ -1225,7 +1223,7 @@ Doors2Section:Button({
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 7",
     Callback = function()
         print("脚本 7 pressed")
@@ -1234,7 +1232,7 @@ Doors2Section:Button({
     end
 })
 
-Doors2Section:Button({
+Doors2Tab:Button({
     Title = "脚本 8",
     Callback = function()
         print("脚本 8 pressed")
