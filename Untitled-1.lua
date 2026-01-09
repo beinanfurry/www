@@ -246,7 +246,7 @@ local function createLoaderUI()
     acrylic.Position = UDim2.new(0, 0, 0, 0)
     acrylic.BackgroundTransparency = 1
     acrylic.Image = "rbxassetid://89828019713131" -- WindUI Glass texture
-    acrylic.ImageTransparency = 0.75
+    acrylic.ImageTransparency = 0.5 -- 降低亮度 (原0.75)
     acrylic.ScaleType = Enum.ScaleType.Tile
     acrylic.TileSize = UDim2.new(0, 128, 0, 128)
     local acrylicCorner = Instance.new("UICorner")
@@ -413,6 +413,7 @@ local Window = WindUI:CreateWindow({
     --IconSize = 22*2,
     NewElements = true,
     Background = "rbxassetid://89828019713131", -- set background decal
+    BackgroundTransparency = 0.3, -- 降低背景亮度 (0=不透明, 1=完全透明)
     --Size = UDim2.fromOffset(700,700),
     
     HideSearchBar = false,
