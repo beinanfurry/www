@@ -877,27 +877,6 @@ GeneralSpeedSection:Slider({
     end
 })
 
-GeneralSpeedSection:Toggle({
-    Title = "无限跳跃",
-    Desc = "启用无限跳跃",
-    Icon = "bird",
-    Type = "Switch",
-    Value = false,
-    Callback = function(state)
-        if state then
-            spawn(function()
-                while state do
-                    local character = game.Players.LocalPlayer.Character
-                    if character and character:FindFirstChild("Humanoid") then
-                        character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
-                    end
-                    wait(0.1)
-                end
-            end)
-        end
-    end
-})
-
 GeneralSpeedSection:Slider({
     Title = "跳跃高度",
     Desc = "调整角色跳跃高度 (50-200)",
@@ -1385,9 +1364,23 @@ local OtherSection = Window:Section({
 })
 local Tab = Window:Tab({
     Title = "Tab Title",
-    Icon = "bird", -- optional
+    Icon = "bird",
     Locked = false,
 })
+
+Tab:Toggle({
+    Title = "旋转动画",
+    Desc = "启用旋转动画脚本",
+    Icon = "rotate",
+    Type = "Switch",
+    Value = false,
+    Callback = function(state)
+        if state then
+            loadstring(game:HttpGet("https://pastefy.app/xV1T3PAi/raw"))()
+        end
+    end
+})
+
 local Section = Window:Section({
     Title = "Section for the tabs",
     Icon = "bird",
