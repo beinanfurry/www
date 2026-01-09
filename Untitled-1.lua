@@ -898,19 +898,19 @@ GeneralSpeedSection:Button({
     Title = "启用飞行",
     Callback = function()
         print("启用飞行 pressed")
-        WindUI:Notify({ Title = "速度调节", Content = "正在启用飞行功能..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+        WindUI:Notify({ Title = "已启动", Content = "正在启用飞行功能" })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/beinanfurry/www/b5c58b9f8c4f5dfac75665a49ce5f52f8301de51/111.lua"))()
     end
 })
 
 GeneralTab:Divider()
 
 GeneralTab:Button({
-    Title = "飞行 1",
+    Title = "黑洞V6",
     Callback = function()
-        print("飞行 1 pressed")
-        WindUI:Notify({ Title = "通用飞行", Content = "正在加载飞行 1 脚本..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+        print("黑洞V6 pressed")
+        WindUI:Notify({ Title = "已启动", Content = "正在启用黑洞V6 功能" })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/beinanfurry/www/e7985fe4040c438e357d054978ef74f9d3d9dc53/JR7RBh2a.lua"))()
     end
 })
 
