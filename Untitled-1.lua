@@ -877,6 +877,17 @@ GeneralSpeedSection:Slider({
     end
 })
 
+GeneralSpeedSection:Toggle({
+    Title = "Toggle",
+    Desc = "Toggle Description",
+    Icon = "bird",
+    Type = "Checkbox",
+    Value = false,
+    Callback = function(state)
+        print("Toggle Activated" .. tostring(state))
+    end
+})
+
 GeneralSpeedSection:Slider({
     Title = "跳跃高度",
     Desc = "调整角色跳跃高度 (50-200)",
