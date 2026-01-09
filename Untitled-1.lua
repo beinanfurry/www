@@ -1169,7 +1169,7 @@ local Doors2Tab = Window:Tab({
     Border = true,
 })
 
-local Doors2Section = Doors2Tab:Section({ Title = "脚本中心", })
+local Doors2Section = Doors2Tab:Section({ Title = "", })
 
 Doors2Section:Button({
     Title = "脚本 1",
@@ -1183,9 +1183,9 @@ Doors2Section:Button({
 Doors2Section:Button({
     Title = "脚本 2",
     Callback = function()
-        print("脚本 2 pressed")
+        print("BS脚本中心pressed")
         WindUI:Notify({ Title = "脚本中心", Content = "正在加载脚本..." })
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+        loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\112\97\115\116\101\98\105\110\46\99\111\109\47\114\97\119\47\103\101\109\120\72\119\65\49"))()
     end
 })
 
