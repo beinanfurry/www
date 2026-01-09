@@ -542,6 +542,8 @@ do
         Icon = "github",
         Color = Color3.fromHex("#30ff6a"),
         Radius = 13, -- from 0 to 13 (rounded corners)
+        Position = UDim2.new(1, 0, 0, 0),
+        AnchorPoint = Vector2.new(1, 0),
     })
     
     -- 五颜六色循环渐变
