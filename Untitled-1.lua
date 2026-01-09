@@ -878,13 +878,23 @@ GeneralSpeedSection:Slider({
 })
 
 GeneralSpeedSection:Toggle({
-    Title = "Toggle",
-    Desc = "Toggle Description",
+    Title = "无限跳跃",
+    Desc = "启用无限跳跃",
     Icon = "bird",
-    Type = "Checkbox",
+    Type = "Switch",
     Value = false,
     Callback = function(state)
-        print("Toggle Activated" .. tostring(state))
+        if state then
+            spawn(function()
+                while state do
+                    local character = game.Players.LocalPlayer.Character
+                    if character and character:FindFirstChild("Humanoid") then
+                        character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+                    end
+                    wait(0.1)
+                end
+            end)
+        end
     end
 })
 
