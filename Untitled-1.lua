@@ -844,34 +844,16 @@ local GeneralSection = GeneralTab:Section({
     Title = "通用飞行合集",
 })
 
--- Script URLs array for 8 buttons
-local scriptUrls = {
-    "https://pastefy.app/xV1T3PGi/raw",
-    "https://pastefy.app/xV1T3PGj/raw",
-    "https://pastefy.app/xV1T3PGk/raw",
-    "https://pastefy.app/xV1T3PGl/raw",
-    "https://pastefy.app/xV1T3PGm/raw",
-    "loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()",
-    "https://pastefy.app/xV1T3PGo/raw",
-    "https://pastefy.app/xV1T3PGp/raw"
-}
-
--- Create 8 Open Door buttons
-for i = 1, 8 do
-    local idx = i  -- Closure trap fix
+-- Create 10 Open Door buttons
+for i = 1, 1 do
+    local idx = i
     GeneralSection:Button({
         Title = "Open Door " .. idx,
         Callback = function()
-            print("Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "通用飞行合集", Content = "正在加载 Open Door " .. idx .. " 脚本..." })
-            local url = scriptUrls[idx]
-            local success, err = pcall(function()
-                loadstring(game:HttpGet(url))()
-            end)
-            if not success then
-                WindUI:Notify({ Title = "错误", Content = "加载脚本失败: " .. tostring(err) })
-                warn("Script load error for Open Door " .. idx .. ": " .. tostring(err))
-            end
+            print("飞行 " .. idx .. " pressed")
+            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
+            local url = "https://pastefy.app/xV1T3PE" .. string.char(104 + i) .. "/raw"
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
         end
     })
 end
