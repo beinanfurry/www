@@ -903,6 +903,17 @@ GeneralSpeedSection:Slider({
     end
 })
 
+GeneralSpeedSection:Button({
+    Title = "启用飞行",
+    Callback = function()
+        print("启用飞行 pressed")
+        WindUI:Notify({ Title = "速度调节", Content = "正在启用飞行功能..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralTab:Divider()
+
 GeneralTab:Button({
     Title = "飞行 1",
     Callback = function()
