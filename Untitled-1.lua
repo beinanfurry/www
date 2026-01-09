@@ -845,7 +845,11 @@ for i = 1, 1 do
     })
 end
 
-DoorsSection:Button({
+local orange = DoorsTab:Section({
+    Title = "Orange",
+})
+
+orange:Button({
     Title = "Orange(已翻译)",
     Callback = function()
         print("Orange(已翻译) pressed")
