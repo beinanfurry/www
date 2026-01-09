@@ -921,17 +921,78 @@ GeneralTab:Select()
 
 -- Additional Doors Control inside General
 local GeneralDoorsControl = GeneralTab:Section({ Title = "Doors Control (追加)", })
-for i = 1, 1 do
-    local idx = i
-    GeneralDoorsControl:Button({
-        Title = "Open Door " .. idx,
-        Callback = function()
-            print("General Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-        end
-    })
-end
+
+GeneralDoorsControl:Button({
+    Title = "Door 1",
+    Callback = function()
+        print("Door 1 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 1 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 2",
+    Callback = function()
+        print("Door 2 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 2 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 3",
+    Callback = function()
+        print("Door 3 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 3 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 4",
+    Callback = function()
+        print("Door 4 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 4 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 5",
+    Callback = function()
+        print("Door 5 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 5 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 6",
+    Callback = function()
+        print("Door 6 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 6 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 7",
+    Callback = function()
+        print("Door 7 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 7 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl:Button({
+    Title = "Door 8",
+    Callback = function()
+        print("Door 8 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Door 8 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
 
 -- Another Doors Control inside General
 local GeneralDoorsControl2 = GeneralTab:Section({ Title = "自然灾害黑洞", })
@@ -981,25 +1042,113 @@ GeneralDoorsControl2:Button({
     end
 })
 
+GeneralDoorsControl2:Button({
+    Title = "黑洞 6",
+    Callback = function()
+        print("黑洞 6 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 6 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 7",
+    Callback = function()
+        print("黑洞 7 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 7 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl2:Button({
+    Title = "黑洞 8",
+    Callback = function()
+        print("黑洞 8 pressed")
+        WindUI:Notify({ Title = "自然灾害", Content = "正在加载黑洞 8 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
 -- Another Doors Control inside General
 local GeneralDoorsControl3 = GeneralTab:Section({ Title = "Doors Control", })
-for i = 1, 1 do
-    local idx = i
-    GeneralDoorsControl3:Button({
-        Title = "Open Door " .. idx,
-        Callback = function()
-            print("General Open Door " .. idx .. " pressed")
-            WindUI:Notify({ Title = "Doors", Content = "Running remote script..." })
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
-        end
-    })
-end
+
+GeneralDoorsControl3:Button({
+    Title = "Control 1",
+    Callback = function()
+        print("Control 1 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 1 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 2",
+    Callback = function()
+        print("Control 2 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 2 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 3",
+    Callback = function()
+        print("Control 3 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 3 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 4",
+    Callback = function()
+        print("Control 4 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 4 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 5",
+    Callback = function()
+        print("Control 5 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 5 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 6",
+    Callback = function()
+        print("Control 6 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 6 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 7",
+    Callback = function()
+        print("Control 7 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 7 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
+
+GeneralDoorsControl3:Button({
+    Title = "Control 8",
+    Callback = function()
+        print("Control 8 pressed")
+        WindUI:Notify({ Title = "Doors Control", Content = "正在加载 Control 8 脚本..." })
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/XxxStellatexxX/Sapphire-is-the-best/refs/heads/main/Script"))()
+    end
+})
 
 -- MimicTab and GenshinTab removed as requested
 
 -- Additional Doors-like Tabs
 local Doors2Tab = Window:Tab({
-    Title = "doors2",
+    Title = "脚本中心",
     Icon = "door",
     IconColor = Grey,
     Border = true,
@@ -1018,6 +1167,8 @@ for i = 1, 1 do
         end
     })
 end
+
+Window:Divider()
 
 local Doors3Tab = Window:Tab({
     Title = "doors3",
