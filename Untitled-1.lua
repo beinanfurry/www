@@ -553,10 +553,10 @@ elseif Window and Window.Background ~= nil then
     Window.Background = "rbxassetid://87574517784098"
 end
 
--- Toggle background transparency
+-- Toggle background transparency (disabled to show background image properly)
 pcall(function()
     if Window and type(Window.ToggleTransparency) == "function" then
-        Window:ToggleTransparency(true)
+        Window:ToggleTransparency(false)
     end
 end)
 
