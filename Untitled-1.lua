@@ -246,7 +246,7 @@ local function createLoaderUI()
     acrylic.Position = UDim2.new(0, 0, 0, 0)
     acrylic.BackgroundTransparency = 1
     acrylic.Image = "rbxassetid://89828019713131" -- WindUI Glass texture
-    acrylic.ImageTransparency = 0.5 -- 降低亮度 (原0.75)
+    acrylic.ImageTransparency = 0.6 -- 亚克力效果 (原0.5)
     acrylic.ScaleType = Enum.ScaleType.Tile
     acrylic.TileSize = UDim2.new(0, 128, 0, 128)
     local acrylicCorner = Instance.new("UICorner")
@@ -413,7 +413,9 @@ local Window = WindUI:CreateWindow({
     --IconSize = 22*2,
     NewElements = true,
     Background = "rbxassetid://89828019713131", -- set background decal
-    BackgroundTransparency = 0.3, -- 降低背景亮度 (0=不透明, 1=完全透明)
+    BackgroundTransparency = 0.5, -- 亚克力效果 (0=不透明, 1=完全透明)
+    BackgroundImage = "rbxassetid://89828019713131", -- 噪点纹理
+    BackgroundImageTransparency = 0.7, -- 噪点纹理透明度
     --Size = UDim2.fromOffset(700,700),
     
     HideSearchBar = false,
@@ -568,6 +570,15 @@ if Window and Window.SetBackgroundImage then
 elseif Window and Window.Background ~= nil then
     Window.Background = "rbxassetid://89828019713131"
 end
+
+-- Add blur effect for acrylic look
+pcall(function()
+    local lighting = game:GetService("Lighting")
+    local blur = Instance.new("BlurEffect")
+    blur.Name = "WindUIBlur"
+    blur.Size = 24
+    blur.Parent = lighting
+end)
 
 -- Toggle background transparency
 pcall(function()
