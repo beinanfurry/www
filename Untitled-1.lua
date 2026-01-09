@@ -537,12 +537,25 @@ Window:EditOpenButton({
 
 -- */  Tags  /* --
 do
-    Window:Tag({
+    local tag = Window:Tag({
         Title = "v0.0.1 北楠缝合脚本",
         Icon = "github",
         Color = Color3.fromHex("#30ff6a"),
-        Radius = 8, -- from 0 to 13 (rounded corners)
+        Radius = 13, -- from 0 to 13 (rounded corners)
     })
+    
+    -- 五颜六色循环渐变
+    task.spawn(function()
+        local hue = 0
+        while true do
+            hue = (hue + 0.01) % 1
+            local color = Color3.fromHSV(hue, 1, 1)
+            if tag and tag.SetColor then
+                tag:SetColor(color)
+            end
+            task.wait(0.05)
+        end
+    end)
 end
 
 -- Set window background image (safe, pcall)
@@ -553,10 +566,10 @@ elseif Window and Window.Background ~= nil then
     Window.Background = "rbxassetid://87574517784098"
 end
 
--- Toggle background transparency (disabled to show background image properly)
+-- Toggle background transparency
 pcall(function()
     if Window and type(Window.ToggleTransparency) == "function" then
-        Window:ToggleTransparency(false)
+        Window:ToggleTransparency(true)
     end
 end)
 
